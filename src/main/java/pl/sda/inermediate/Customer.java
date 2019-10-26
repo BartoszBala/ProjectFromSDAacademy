@@ -1,28 +1,33 @@
 package pl.sda.inermediate;
 
+
+import lombok.*;
+
 import java.math.BigDecimal;
-
+@Getter
+@Setter
 public class Customer {
-    static Integer counter = 1;
-    Integer id;
-    String firstname;
-    String lastname;
-    Integer age;
-    BigDecimal salary;
+    private static Integer counter = 1;
+    private Integer id;
+    private String firstname;
+    private String lastname;
+    private Integer age;
+    private BigDecimal salary;
 
-    {      this.id = counter++;
-
-    }
-
-    public Customer() {
+    {
+        this.id = counter++;
 
     }
+
+
 
     public Customer(String name, String surname, int age, String salary) {
 
-        this(name,surname,age,Double.parseDouble(salary));
+
+       this(name, surname, age, salary==null?0:Double.parseDouble(salary));
 
     }
+
     public Customer(String name, String surname, int age, double salary) {
 
         this.firstname = name;
@@ -32,25 +37,9 @@ public class Customer {
 
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public String getFirstname() {
-        return firstname;
-    }
 
-    public String getLastname() {
-        return lastname;
-    }
 
-    public int getAge() {
-        return age;
-    }
-
-    public BigDecimal getSalary() {
-        return salary;
-    }
 
     @Override
     public String toString() {
@@ -62,4 +51,6 @@ public class Customer {
                 ", salary=" + salary +
                 '}';
     }
+
+
 }
